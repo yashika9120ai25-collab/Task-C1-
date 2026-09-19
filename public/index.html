@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DEV@Deakin — Yashika Gupta's Personal Portfolio" />
+    <title>DEV@Deakin | Portfolio</title>
+
+    <!-- Tailwind CSS via CDN — no installation needed -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS for the banner hover reveal -->
+    <style>
+      /* Show overlay when parent .banner-wrap is hovered or focused */
+      .banner-wrap:hover .overlay,
+      .banner-wrap:focus-within .overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .overlay {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 text-slate-800 font-serif">
+
+    <!-- 1. Navigation Bar -->
+    <nav class="bg-[#12203A] flex justify-between items-center px-10 py-4 sticky top-0 z-50">
+
+      <!-- Logo -->
+      <div class="text-[#E8A33D] font-semibold text-xl tracking-widest">
+        DEV<span class="text-[#2BB7A5]">@</span>Deakin
+      </div>
+
+      <!-- Nav links -->
+      <ul class="flex gap-8 list-none">
+        <li>
+          <a href="#about"
+             class="text-slate-100 text-sm tracking-wide hover:text-[#2BB7A5] transition-colors duration-200">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#work"
+             class="text-slate-100 text-sm tracking-wide hover:text-[#2BB7A5] transition-colors duration-200">
+            Work
+          </a>
+        </li>
+        <li>
+          <a href="#contact"
+             class="text-slate-100 text-sm tracking-wide hover:text-[#2BB7A5] transition-colors duration-200">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 2. Banner and hover overlay -->
+    <div class="banner-wrap relative" tabindex="0">
+      <img
+        src="img1.jpg"
+        alt="Banner of Portfolio"
+        class="w-full h-96 object-cover object-center"
+      />
+      <div class="overlay absolute bottom-0 left-0 w-full
+                  bg-[#12203A]/80
+                  text-white text-center text-2xl font-semibold tracking-wide
+                  py-5 transition-all duration-300">
+        Hey, I'm Yashika Gupta 
+      </div>
+    </div>
+
+    <!-- 3. About / Profile Section -->
+    <section id="about" class="flex flex-col items-center py-16 px-6 text-center">
+      <img
+        src="Portfolio.jpeg"
+        alt="Profile photo"
+        class="w-28 h-28 rounded-full object-cover border-4 border-[#2BB7A5]/40 mb-5"
+      />
+      <p class="text-[#12203A] font-medium text-sm tracking-wide mb-3">
+        B.E. Student · Specialisation in AI &amp; ML
+      </p>
+      <p class="text-slate-500 text-base max-w-md leading-relaxed mb-6">
+        I'm a Bachelor of Engineering student specialising in Artificial Intelligence
+        and Machine Learning. I like turning messy data into models that actually make
+        decisions; from classroom experiments to side projects I build for fun.
+      </p>
+      <hr class="w-24 border-t-2 border-slate-200 mb-4" />
+    </section>
+
+    <!-- 4. Projects Section -->
+    <section id="work" class="bg-white py-14 px-10">
+      <h2 class="text-center text-2xl font-bold text-[#12203A] mb-10 tracking-wide">
+        Here are some of my projects!
+      </h2>
+
+      <div class="flex flex-wrap justify-center gap-6">
+
+        <!-- Project Card 1 - Water Reminder -->
+        <div class="bg-slate-50 rounded-xl shadow-md w-72 overflow-hidden
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img
+            src="water.png"
+            alt="Water Reminder project"
+            class="w-full h-44 object-cover"
+          />
+
+          <div class="p-5">
+            <h3 class="text-[#12203A] font-semibold text-base mb-2">
+              Water Reminder
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+              A simple application designed to help users track their daily
+              water intake and receive reminders to stay hydrated throughout
+              the day.
+            </p>
+
+            <a
+              href="#"
+              class="text-[#2BB7A5] text-sm font-medium
+                     hover:text-[#12203A] transition-colors"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Project Card 2 - Fruit Freshness Monitoring System -->
+        <div class="bg-slate-50 rounded-xl shadow-md w-72 overflow-hidden
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img
+            src="pro2.png"
+            alt="Fruit Freshness Monitoring System"
+            class="w-full h-44 object-cover"
+          />
+
+          <div class="p-5">
+            <h3 class="text-[#12203A] font-semibold text-base mb-2">
+              Fruit Freshness Monitoring System
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+              A smart monitoring system using gas, weight, and temperature sensors
+              to monitor fruit freshness and detect possible signs of spoilage.
+            </p>
+
+            <a
+              href="#"
+              class="text-[#2BB7A5] text-sm font-medium
+                     hover:text-[#12203A] transition-colors"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Project Card 3 - Swimming Pool Cleaning Robot -->
+        <div class="bg-slate-50 rounded-xl shadow-md w-72 overflow-hidden
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img
+            src="pro3.png"
+            alt="Swimming Pool Cleaning Robot project"
+            class="w-full h-44 object-cover"
+          />
+
+          <div class="p-5">
+            <h3 class="text-[#12203A] font-semibold text-base mb-2">
+              Swimming Pool Cleaning Robot
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+              An Arduino UNO based project designed to assist with swimming
+              pool cleaning using sensors for obstacle detection, water
+              monitoring and automated cleaning.
+            </p>
+
+            <a
+              href="#"
+              class="text-[#2BB7A5] text-sm font-medium
+                     hover:text-[#12203A] transition-colors"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Project Card 4 - Model Training -->
+        <div class="bg-slate-50 rounded-xl shadow-md w-72 overflow-hidden
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img
+            src="pro4.png"
+            alt="Machine Learning Model Training project"
+            class="w-full h-44 object-cover"
+          />
+
+          <div class="p-5">
+            <h3 class="text-[#12203A] font-semibold text-base mb-2">
+              Machine Learning Model Training
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+              A machine learning project focused on preparing datasets, training
+              models, evaluating their performance and improving predictions through
+              suitable algorithms and parameter tuning.
+            </p>
+
+            <a
+              href="#"
+              class="text-[#2BB7A5] text-sm font-medium
+                     hover:text-[#12203A] transition-colors"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Card 5 - Ethical Implications of AI and Algorithmic Bias -->
+        <div class="bg-slate-50 rounded-xl shadow-md w-72 overflow-hidden
+                    hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img
+            src="pro5.png"
+            alt="Ethical Implications of AI-Driven Database Systems and Algorithmic Bias"
+            class="w-full h-44 object-cover"
+          />
+
+          <div class="p-5">
+            <h3 class="text-[#12203A] font-semibold text-base mb-2">
+              Ethical Implications of AI &amp; Algorithmic Bias
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+              An exploration of ethical issues in AI-driven database systems,
+              focusing on privacy, data security, transparency, accountability
+              and algorithmic bias that can lead to unfair outcomes.
+            </p>
+
+            <a
+              href="#"
+              class="text-[#2BB7A5] text-sm font-medium
+                     hover:text-[#12203A] transition-colors"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Photo Gallery -->
+    <section class="py-14 px-10">
+      <hr class="w-24 border-t-2 border-slate-200 mx-auto mb-8" />
+      <h2 class="text-center text-2xl font-bold text-[#12203A] mb-8 tracking-wide">
+        Gallery
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        <img src="images/image1.jpeg" alt="Gallery image 1" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image2.jpeg" alt="Gallery image 2" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image3.jpeg" alt="Gallery image 3" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image4.jpeg" alt="Gallery image 4" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image5.jpeg" alt="Gallery image 5" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image6.jpeg" alt="Gallery image 6" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image7.jpeg" alt="Gallery image 7" class="w-full h-48 object-cover rounded-lg" />
+        <img src="images/image8.jpeg" alt="Gallery image 8" class="w-full h-48 object-cover rounded-lg" />
+      </div>
+    </section>
+
+    <!-- Sign-Up / Newsletter Section -->
+    <section id="subscribe" class="bg-[#12203A] py-14 px-10 text-center">
+      <h2 class="text-2xl font-bold text-white mb-3 tracking-wide">
+        Stay in the loop
+      </h2>
+      <p class="text-slate-300 text-sm max-w-md mx-auto mb-6 leading-relaxed">
+        Subscribe to get an email whenever I publish a new project on DEV@Deakin.
+      </p>
+
+      <form id="subscribe-form" class="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          class="w-full sm:w-auto flex-1 px-4 py-3 rounded-lg text-sm text-slate-800
+                 focus:outline-none focus:ring-2 focus:ring-[#2BB7A5]"
+        />
+        <button
+          type="submit"
+          id="subscribe-btn"
+          class="w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-semibold
+                 bg-[#E8A33D] text-[#12203A] hover:bg-[#2BB7A5] hover:text-white
+                 transition-colors duration-200"
+        >
+          Subscribe
+        </button>
+      </form>
+
+      <p id="subscribe-message" class="mt-4 text-sm min-h-[1.25rem]"></p>
+    </section>
+
+    <!-- 6. Footer -->
+    <footer id="contact" class="bg-[#12203A] text-slate-300 text-center py-6 text-sm">
+      <p>
+        © 2026 DEV@Deakin — Yashika Gupta —
+        <a href="mailto:yashika9120.ai25@chitkara.edu.in" class="text-[#E8A33D]">
+          yashika9120.ai25@chitkara.edu.in
+        </a>
+      </p>
+    </footer>
+
+    <!-- Sign-up form: sends the email to the Express backend -->
+    <script>
+      const form = document.getElementById('subscribe-form');
+      const emailInput = document.getElementById('email');
+      const messageEl = document.getElementById('subscribe-message');
+      const submitBtn = document.getElementById('subscribe-btn');
+
+      const SUBSCRIBE_URL = '/subscribe';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = emailInput.value.trim();
+
+        submitBtn.disabled = true;
+        messageEl.textContent = 'Subscribing…';
+        messageEl.className = 'mt-4 text-sm min-h-[1.25rem] text-slate-300';
+
+        try {
+          const res = await fetch(SUBSCRIBE_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            messageEl.textContent = data.message || 'Subscribed! Check your inbox.';
+            messageEl.className = 'mt-4 text-sm min-h-[1.25rem] text-[#2BB7A5]';
+            form.reset();
+          } else {
+            messageEl.textContent = data.error || 'Something went wrong. Please try again.';
+            messageEl.className = 'mt-4 text-sm min-h-[1.25rem] text-red-400';
+          }
+        } catch (err) {
+          messageEl.textContent = 'Could not reach the server. Is it running?';
+          messageEl.className = 'mt-4 text-sm min-h-[1.25rem] text-red-400';
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    </script>
+
+  </body>
+</html>
