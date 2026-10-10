@@ -1,3 +1,6 @@
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,25 +11,38 @@ import Gallery from "./components/Gallery";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
 
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
+function Home() {
+  return (
+    <main>
+      <Hero />
+      <About />
+      <Projects />
+      <Articles />
+      <Tutorials />
+      <Gallery />
+      <Newsletter />
+    </main>
+  );
+}
+
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-serif">
+    <BrowserRouter>
+      <div className="min-h-screen bg-slate-50 text-slate-800 font-serif">
+        <Navbar />
 
-      <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
 
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Articles />
-        <Tutorials />
-        <Gallery />
-        <Newsletter />
-      </main>
-
-      <Footer />
-
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
