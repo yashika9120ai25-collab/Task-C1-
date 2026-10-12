@@ -35,9 +35,11 @@ function Navbar() {
 
       {/* Post and Login */}
       <div className="flex items-center gap-6 whitespace-nowrap">
-        <Link to="/" className="text-white hover:text-[#2BB7A5]">
-          Post
-        </Link>
+        
+      <Link to="/post" className="text-white hover:text-[#2BB7A5]">
+       Post
+      </Link>
+
         <Link to="/login" className="text-white hover:text-[#2BB7A5]">
           Login
         </Link>
