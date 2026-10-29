@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from "firebase/auth";
 import {
   doc,
@@ -21,6 +21,8 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   async function handleSignup(e) {
     e.preventDefault();
@@ -29,11 +31,31 @@ function Signup() {
     const name = fullName.trim();
     const normalizedEmail = email.trim().toLowerCase();
 
-    if (name.split(/\s+/).length < 2) {
+    // Validate full name
+    if (name === "") {
+      setError("Please enter your full name.");
+      return;
+    }
+
+    if (name.indexOf(" ") === -1) {
       setError("Please enter your first and last name.");
       return;
     }
 
+    // Validate email
+    if (normalizedEmail === "") {
+      setError("Please enter your email address.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(normalizedEmail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate password
     if (password.length < 6) {
       setError("Password must contain at least 6 characters.");
       return;
@@ -63,23 +85,32 @@ function Signup() {
         createdAt: serverTimestamp(),
       });
 
-      await auth.signOut();
+      await signOut(auth);
 
-      navigate("/login", {
-        replace: true,
-        state: { registered: true },
-      });
+alert("Account created successfully!");
+
+navigate("/login", {
+  replace: true,
+  state: { registered: true },
+});
+
+
     } catch (err) {
       console.error("Registration error:", err);
 
       if (err.code === "auth/email-already-in-use") {
         setError("This email is already registered. Please log in.");
-      } else if (err.code === "permission-denied") {
+      } else if (err.code === "auth/invalid-email") {
+        setError("Please enter a valid email address.");
+      } else if (err.code === "auth/weak-password") {
+        setError("Please choose a stronger password.");
+      } else if (
+        err.code === "permission-denied" ||
+        err.code === "firestore/permission-denied"
+      ) {
         setError(
           "Unable to save your profile. Please check Firestore permissions."
         );
-      } else if (err.code === "auth/weak-password") {
-        setError("Please choose a stronger password.");
       } else {
         setError("Registration failed. Please try again.");
       }
@@ -104,7 +135,7 @@ function Signup() {
           <input
             id="fullName"
             type="text"
-            className="border rounded p-2"
+            className="border rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             autoComplete="name"
@@ -115,35 +146,66 @@ function Signup() {
           <input
             id="signupEmail"
             type="email"
-            className="border rounded p-2"
+            className="border rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
             required
           />
 
-          <label htmlFor="signupPassword">Password *</label>
-          <input
-            id="signupPassword"
-            type="password"
-            className="border rounded p-2"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="new-password"
-            minLength={6}
-            required
-          />
+          
+<label htmlFor="signupPassword">Password *</label>
 
-          <label htmlFor="confirmPassword">Confirm password *</label>
-          <input
-            id="confirmPassword"
-            type="password"
-            className="border rounded p-2"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            autoComplete="new-password"
-            required
-          />
+<div className="relative">
+  <input
+    id="signupPassword"
+    type={showPassword ? "text" : "password"}
+    className="border rounded p-2 pr-12 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    autoComplete="new-password"
+    minLength={6}
+    required
+  />
+
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-slate-600"
+    aria-label={showPassword ? "Hide password" : "Show password"}
+  >
+    {showPassword ? "Hide" : "Show"}
+  </button>
+</div>
+
+
+
+          
+<label htmlFor="confirmPassword">Confirm password *</label>
+
+<div className="relative">
+  <input
+    id="confirmPassword"
+    type={showConfirmPassword ? "text" : "password"}
+    className="border rounded p-2 pr-12 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+    value={confirmPassword}
+    onChange={(e) => setConfirmPassword(e.target.value)}
+    autoComplete="new-password"
+    required
+  />
+
+  <button
+    type="button"
+    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-slate-600"
+    aria-label={
+      showConfirmPassword ? "Hide confirm password" : "Show confirm password"
+    }
+  >
+    {showConfirmPassword ? "Hide" : "Show"}
+  </button>
+</div>
+
 
           {error && (
             <p className="text-red-600 text-sm" role="alert">

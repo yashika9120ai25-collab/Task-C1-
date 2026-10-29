@@ -10,10 +10,10 @@ import Tutorials from "./components/Tutorials";
 import Gallery from "./components/Gallery";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
-import Post from "./pages/Post";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 
 function Home() {
   return (
@@ -39,7 +39,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/post" element={<Post />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
 
         <Footer />

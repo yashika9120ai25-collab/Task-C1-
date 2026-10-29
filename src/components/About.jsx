@@ -1,9 +1,13 @@
+
 function About() {
   return (
     <section
       id="about"
       className="flex flex-col items-center py-16 px-6 text-center"
     >
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-6">
+        About Me
+      </h2>
 
       <img
         src="/Portfolio.jpeg"
@@ -23,7 +27,6 @@ function About() {
       </p>
 
       <hr className="w-24 border-t-2 border-slate-200" />
-
     </section>
   );
 }

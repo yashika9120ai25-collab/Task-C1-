@@ -12,7 +12,7 @@ function Gallery() {
   ];
 
   return (
-    <section className="py-14 px-10 bg-slate-50">
+    <section id="gallery" className="py-14 px-10 bg-slate-50">
 
       <hr className="w-24 border-t-2 border-slate-200 mx-auto mb-8" />
 

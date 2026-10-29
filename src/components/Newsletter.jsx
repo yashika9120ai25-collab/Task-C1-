@@ -29,7 +29,7 @@ function Newsletter() {
     >
 
       <h2 className="text-2xl font-bold text-white mb-3 tracking-wide">
-        Stay in the loop
+        SIGN UP FOR OUR DAILY INSIDER
       </h2>
 
       <p className="text-slate-300 text-sm max-w-md mx-auto mb-6">
