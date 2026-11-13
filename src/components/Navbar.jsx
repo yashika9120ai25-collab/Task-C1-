@@ -125,7 +125,7 @@ function Navbar() {
         {/* Desktop Post, Profile and Login/Logout */}
         <div className="hidden shrink-0 items-center gap-5 lg:flex">
           <Link
-            to="/"
+            to="/post"
             className="text-base text-white hover:text-[#2BB7A5] lg:text-lg"
           >
             Post
@@ -224,7 +224,7 @@ function Navbar() {
           {/* Mobile Post, Profile and Login/Logout */}
           <div className="mt-4 flex flex-col items-start gap-2 border-t border-white/20 pt-4">
             <Link
-              to="/"
+              to="/post"
               onClick={() => setMenuOpen(false)}
               className="text-white hover:text-[#2BB7A5]"
             >
